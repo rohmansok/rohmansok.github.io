@@ -169,6 +169,19 @@
         font-weight: 500;
       }
 
+      .contact-item .value a {
+        color: inherit;
+        text-decoration: none;
+        border-bottom: 1px solid transparent;
+        transition: var(--transition);
+      }
+
+      .contact-item .value a:hover,
+      .contact-item .value a:focus-visible {
+        color: var(--primary);
+        border-bottom-color: var(--primary);
+      }
+
       .address-text {
         margin-top: 10px;
         padding-top: 20px;
@@ -251,11 +264,11 @@
           <div class="contact-list">
             <div class="contact-item">
               <span class="label">Phone</span>
-              <span class="value">02-6952-0199</span>
+              <span class="value"><a href="tel:0269520199">02-6952-0199</a></span>
             </div>
             <div class="contact-item">
               <span class="label">Mobile</span>
-              <span class="value">010-3597-9869</span>
+              <span class="value"><a href="tel:01035979869">010-3597-9869</a></span>
             </div>
             <div class="contact-item">
               <span class="label">Fax</span>
@@ -263,7 +276,7 @@
             </div>
             <div class="contact-item">
               <span class="label">E-mail</span>
-              <span class="value">rohmansok@naver.com</span>
+              <span class="value"><a href="mailto:rohmansok@naver.com">rohmansok@naver.com</a></span>
             </div>
           </div>
           <div class="address-text">
