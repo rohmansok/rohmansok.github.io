@@ -1,0 +1,528 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>변호사 노만석 법률사무소</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;700&family=Noto+Sans+KR:wght@300;400;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --primary: #0f1c2e; /* 깊은 네이비 */
+        --secondary: #1d314a; /* 중간 네이비 */
+        --accent: #c4a252; /* 샴페인 골드 */
+        --text-main: #222;
+        --text-muted: #666;
+        --bg-light: #f8f9fa;
+        --white: #ffffff;
+        --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+      }
+
+      * {
+        box-sizing: border-box;
+        word-break: keep-all;
+      }
+
+      body {
+        margin: 0;
+        font-family: "Noto Sans KR", sans-serif;
+        background-color: var(--bg-light);
+        color: var(--text-main);
+        line-height: 1.6;
+      }
+
+      .container {
+        max-width: 1000px;
+        margin: 0 auto;
+        padding: 0 20px;
+      }
+
+      /* --- Hero Section --- */
+      header {
+        background: linear-gradient(
+          135deg,
+          var(--primary) 0%,
+          var(--secondary) 100%
+        );
+        color: var(--white);
+        padding: 80px 0 60px;
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+      }
+
+      header::after {
+        content: "";
+        position: absolute;
+        top: -50%;
+        right: -10%;
+        width: 400px;
+        height: 400px;
+        background: radial-gradient(
+          circle,
+          rgba(196, 162, 82, 0.1) 0%,
+          transparent 70%
+        );
+        border-radius: 50%;
+      }
+
+      .profile-box {
+        margin-bottom: 34px;
+        position: relative;
+        display: inline-block;
+      }
+
+      .profile-slider {
+        position: relative;
+        width: min(72vw, 560px);
+        aspect-ratio: 16 / 9;
+      }
+
+      .profile-image {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 14px;
+        border: 3px solid var(--accent);
+        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+        display: none;
+      }
+
+      .profile-image.active {
+        display: block;
+      }
+
+      .slider-btn {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 40px;
+        height: 40px;
+        border: none;
+        border-radius: 50%;
+        background: rgba(15, 28, 46, 0.72);
+        color: #fff;
+        font-size: 24px;
+        line-height: 1;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .slider-btn:hover,
+      .slider-btn:focus-visible {
+        background: rgba(15, 28, 46, 0.95);
+      }
+
+      .slider-btn.prev {
+        left: -18px;
+      }
+
+      .slider-btn.next {
+        right: -18px;
+      }
+
+      .office-name {
+        font-family: "Noto Serif KR", serif;
+        font-size: 1.1rem;
+        letter-spacing: 0.2em;
+        color: var(--accent);
+        margin-bottom: 10px;
+        display: block;
+      }
+
+      h1 {
+        font-family: "Noto Serif KR", serif;
+        font-size: 3rem;
+        margin: 0;
+        letter-spacing: 0.1em;
+      }
+
+      .hero-subtitle {
+        font-weight: 300;
+        opacity: 0.8;
+        margin-top: 15px;
+        font-size: 1.1rem;
+      }
+
+      /* --- Main Content --- */
+      main {
+        margin-top: -40px;
+        padding-bottom: 100px;
+      }
+
+      .info-grid {
+        display: grid;
+        grid-template-columns: 1fr 1.5fr;
+        gap: 30px;
+      }
+
+      .news-teaser {
+        margin-top: 30px;
+      }
+
+      .card {
+        background: var(--white);
+        border-radius: 20px;
+        padding: 40px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+        border: 1px solid rgba(0, 0, 0, 0.03);
+        transition: var(--transition);
+      }
+
+      .card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+      }
+
+      .section-title {
+        font-family: "Noto Serif KR", serif;
+        font-size: 1.5rem;
+        margin-bottom: 25px;
+        padding-bottom: 15px;
+        border-bottom: 2px solid var(--accent);
+        color: var(--primary);
+        display: inline-block;
+      }
+
+      /* --- Contact Info --- */
+      .contact-list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+      }
+
+      .contact-item {
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 20px;
+      }
+
+      .contact-item .label {
+        font-size: 0.85rem;
+        color: var(--accent);
+        font-weight: 700;
+        text-transform: uppercase;
+        margin-bottom: 4px;
+      }
+
+      .contact-item .value {
+        font-size: 1.1rem;
+        color: var(--text-main);
+        font-weight: 500;
+      }
+
+      .contact-item .value a {
+        color: inherit;
+        text-decoration: none;
+        border-bottom: 1px solid transparent;
+        transition: var(--transition);
+      }
+
+      .contact-item .value a:hover,
+      .contact-item .value a:focus-visible {
+        color: var(--primary);
+        border-bottom-color: var(--primary);
+      }
+
+      .address-text {
+        margin-top: 10px;
+        padding-top: 20px;
+        border-top: 1px dashed #ddd;
+        font-size: 0.95rem;
+        line-height: 1.7;
+      }
+
+      /* --- Career Info --- */
+      .career-list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+      }
+
+      .career-list li {
+        position: relative;
+        padding-left: 20px;
+        margin-bottom: 15px;
+        font-size: 1.1rem;
+        color: #444;
+      }
+
+      .career-list li::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 12px;
+        width: 6px;
+        height: 6px;
+        background-color: var(--accent);
+        border-radius: 50%;
+      }
+
+      .news-list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+      }
+
+      .news-list li {
+        padding: 14px 0;
+        border-bottom: 1px solid #eceff3;
+      }
+
+      .news-list li:last-child {
+        border-bottom: none;
+      }
+
+      .news-list a {
+        text-decoration: none;
+        color: var(--text-main);
+        font-size: 1.02rem;
+      }
+
+      .news-list a:hover,
+      .news-list a:focus-visible {
+        color: var(--primary);
+      }
+
+      .news-actions {
+        margin-top: 24px;
+      }
+
+      .btn-news {
+        display: inline-block;
+        padding: 11px 18px;
+        border-radius: 10px;
+        background: var(--primary);
+        color: var(--white);
+        text-decoration: none;
+        font-weight: 700;
+        letter-spacing: 0.01em;
+      }
+
+      .btn-news:hover,
+      .btn-news:focus-visible {
+        background: var(--secondary);
+      }
+
+      /* --- Footer --- */
+      footer {
+        text-align: center;
+        padding: 40px 0;
+        color: var(--text-muted);
+        font-size: 0.9rem;
+        border-top: 1px solid #eee;
+      }
+
+      /* --- Responsive --- */
+      @media (max-width: 850px) {
+        .info-grid {
+          grid-template-columns: 1fr;
+        }
+        h1 {
+          font-size: 2.2rem;
+        }
+        header {
+          padding: 60px 0 80px;
+        }
+        .profile-slider {
+          width: min(88vw, 500px);
+        }
+        .slider-btn.prev {
+          left: -12px;
+        }
+        .slider-btn.next {
+          right: -12px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="container">
+        <div class="profile-box">
+          <div class="profile-slider" aria-label="프로필 이미지 슬라이더">
+            <img
+              src="../src/profile_mansok_1.jpeg"
+              alt="변호사 노만석 프로필 사진 1"
+              class="profile-image active"
+            />
+            <img
+              src="../src/profile_mansok_2.jpeg"
+              alt="변호사 노만석 프로필 사진 2"
+              class="profile-image"
+            />
+            <img
+              src="../src/profile.jpg"
+              alt="변호사 노만석 프로필 사진 3"
+              class="profile-image"
+            />
+            <button
+              class="slider-btn prev"
+              type="button"
+              aria-label="이전 이미지"
+            >
+              &#8249;
+            </button>
+            <button
+              class="slider-btn next"
+              type="button"
+              aria-label="다음 이미지"
+            >
+              &#8250;
+            </button>
+          </div>
+        </div>
+        <span class="office-name">변호사 노만석 법률사무소</span>
+        <h1>변호사 노만석</h1>
+        <p class="hero-subtitle">
+          풍부한 수사·공직 경험을 바탕으로 신뢰할 수 있는 법률해결을 제공합니다.
+        </p>
+      </div>
+    </header>
+
+    <main class="container">
+      <div class="info-grid">
+        <section class="card">
+          <h2 class="section-title">CONTACT</h2>
+          <div class="contact-list">
+            <div class="contact-item">
+              <span class="label">Phone</span>
+              <span class="value"
+                ><a href="tel:0269520199">02-6952-0199</a></span
+              >
+            </div>
+            <div class="contact-item">
+              <span class="label">Mobile</span>
+              <span class="value"
+                ><a href="tel:01035979869">010-3597-9869</a></span
+              >
+            </div>
+            <div class="contact-item">
+              <span class="label">Fax</span>
+              <span class="value">02-3471-0849</span>
+            </div>
+            <div class="contact-item">
+              <span class="label">E-mail</span>
+              <span class="value"
+                ><a href="mailto:rohmansok@naver.com"
+                  >rohmansok@naver.com</a
+                ></span
+              >
+            </div>
+          </div>
+          <div class="address-text">
+            <strong>주소</strong><br />
+            (06644) 서울 서초구 반포대로30길 81, 14층<br />(서초동, 웅진타워)
+          </div>
+        </section>
+
+        <section class="card">
+          <h2 class="section-title">CAREER</h2>
+          <ul class="career-list">
+            <li>성균관대 법대 졸업, 사법연수원 제29기 수료</li>
+            <li>경남 창녕 대성고 9회 졸업</li>
+            <li>검찰총장 권한대행, 대검찰청 차장검사(고검장)</li>
+            <li>대검찰청 마약·조직범죄부장(검사장)</li>
+            <li>제주지방검찰청 검사장</li>
+            <li>서울고등검찰청 검사장 직무대리, 차장검사(검사장)</li>
+            <li>부산지방검찰청 제2차장검사</li>
+            <li>서울중앙지방검찰청 조사2부 부장검사</li>
+            <li>광주, 인천지방검찰청 특별수사부 부장검사</li>
+            <li>서울특별시청 법률자문검사 등</li>
+            <li>성균인문동양아카데미 11기 수료</li>
+          </ul>
+        </section>
+      </div>
+      <section class="card news-teaser">
+        <h2 class="section-title">관련 뉴스</h2>
+        <ul class="news-list">
+          <li>
+            <a
+              href="https://www.hankyung.com/article/202602028368i"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              [단독] 노만석 前 검찰총장 직무대행 변호사 등록
+            </a>
+          </li>
+          <li>
+            <a
+              href="https://www.edaily.co.kr/News/Read?mediaCodeNo=257&newsId=04841286642230256"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              [프로필] ‘檢 2인자’ 노만석 대검 차장…신망 높은 실무형 검사
+            </a>
+          </li>
+          <li>
+            <a
+              href="https://www.yna.co.kr/view/AKR20250701154300004"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              [2보] 대검 차장 노만석… 이재명 정부 첫 검찰 인사 단행
+            </a>
+          </li>
+        </ul>
+        <div class="news-actions">
+          <a class="btn-news" href="../news/">관련 뉴스 전체보기</a>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="container">
+        &copy; 2026 변호사 노만석 법률사무소. All Rights Reserved.
+      </div>
+    </footer>
+    <script>
+      (function () {
+        const slides = document.querySelectorAll(".profile-image");
+        const prevBtn = document.querySelector(".slider-btn.prev");
+        const nextBtn = document.querySelector(".slider-btn.next");
+        const intervalMs = 10000;
+        let current = 0;
+        let timer = null;
+
+        function showSlide(index) {
+          slides[current].classList.remove("active");
+          current = (index + slides.length) % slides.length;
+          slides[current].classList.add("active");
+        }
+
+        function nextSlide() {
+          showSlide(current + 1);
+        }
+
+        function prevSlide() {
+          showSlide(current - 1);
+        }
+
+        function startAutoPlay() {
+          timer = setInterval(nextSlide, intervalMs);
+        }
+
+        function resetAutoPlay() {
+          clearInterval(timer);
+          startAutoPlay();
+        }
+
+        prevBtn.addEventListener("click", function () {
+          prevSlide();
+          resetAutoPlay();
+        });
+
+        nextBtn.addEventListener("click", function () {
+          nextSlide();
+          resetAutoPlay();
+        });
+
+        startAutoPlay();
+      })();
+    </script>
+  </body>
+</html>
