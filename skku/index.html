@@ -8,6 +8,13 @@
       href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;700&family=Noto+Sans+KR:wght@300;400;700&display=swap"
       rel="stylesheet"
     />
+    <script src="https://cdn.amplitude.com/script/aadb0be7966e3e2574b459f6db28be6f.js"></script>
+    <script>
+      window.amplitude.init("aadb0be7966e3e2574b459f6db28be6f", {
+        fetchRemoteConfig: true,
+        autocapture: true,
+      });
+    </script>
     <style>
       :root {
         --primary: #0f1c2e; /* 깊은 네이비 */
@@ -148,6 +155,13 @@
         font-size: 1.1rem;
       }
 
+      .hero-note {
+        margin-top: 14px;
+        font-size: 0.95rem;
+        color: var(--white);
+        letter-spacing: 0.01em;
+      }
+
       /* --- Main Content --- */
       main {
         margin-top: -40px;
@@ -157,6 +171,11 @@
       .info-grid {
         display: grid;
         grid-template-columns: 1fr 1.5fr;
+        gap: 30px;
+      }
+
+      .info-grid-right {
+        display: grid;
         gap: 30px;
       }
 
@@ -234,6 +253,42 @@
         border-top: 1px dashed #ddd;
         font-size: 0.95rem;
         line-height: 1.7;
+      }
+
+      .directions-block {
+        margin-top: 18px;
+        padding-top: 18px;
+        border-top: 1px dashed #ddd;
+      }
+
+      .directions-title {
+        display: block;
+        margin-bottom: 8px;
+        font-size: 0.95rem;
+        color: var(--primary);
+        font-weight: 700;
+      }
+
+      .directions-text {
+        margin: 0;
+        font-size: 0.95rem;
+        line-height: 1.7;
+        color: #333;
+      }
+
+      .map-embed {
+        margin-top: 12px;
+        border-radius: 12px;
+        overflow: hidden;
+        border: 1px solid #dbe1e8;
+        background: #fff;
+      }
+
+      .map-embed iframe {
+        width: 100%;
+        height: 280px;
+        border: 0;
+        display: block;
       }
 
       /* --- Career Info --- */
@@ -337,6 +392,9 @@
         .slider-btn.next {
           right: -12px;
         }
+        .map-embed iframe {
+          height: 240px;
+        }
       }
     </style>
   </head>
@@ -349,11 +407,6 @@
               src="../src/profile_mansok_1.jpeg"
               alt="변호사 노만석 프로필 사진 1"
               class="profile-image active"
-            />
-            <img
-              src="../src/profile_mansok_2.jpeg"
-              alt="변호사 노만석 프로필 사진 2"
-              class="profile-image"
             />
             <img
               src="../src/profile.jpg"
@@ -379,7 +432,15 @@
         <span class="office-name">변호사 노만석 법률사무소</span>
         <h1>대표 변호사 노만석</h1>
         <p class="hero-subtitle">
-          풍부한 수사·공직 경험을 바탕으로 신뢰할 수 있는 법률해결을 제공합니다.
+          대검찰청 차장검사 및 검찰총장 직무대행을 끝으로 25여 년 동안 근무했던
+          검찰을 떠나 변호사로서 새롭게 출발하게 되었습니다.<br />
+          그동안 보내주신 성원과 격려에 깊이 감사드리며, 앞으로는 법조인의 한
+          사람으로서 사회와 이웃에 베푸는 삶을 살아가며 바른 길을 걸어갈 수
+          있도록 최선을 다하겠습니다.<br />
+          앞으로도 아낌없는 가르침과 격려를 부탁드립니다.
+        </p>
+        <p class="hero-note">
+          ※ 개업 인사는 별도로 올리지 않으며, 화환과 화분은 정중히 사양합니다.
         </p>
       </div>
     </header>
@@ -418,24 +479,48 @@
             <strong>주소</strong><br />
             (06644) 서울 서초구 반포대로30길 81, 14층<br />(서초동, 웅진타워)
           </div>
+          <div class="directions-block">
+            <span class="directions-title">찾아오시는 길</span>
+            <p class="directions-text">
+              지하철 2호선·3호선 교대역 8번 또는 9번 출구에서 도보 이동<br />
+            </p>
+            <div class="map-embed">
+              <iframe
+                title="변호사 노만석 법률사무소 위치 지도"
+                src="https://www.google.com/maps?q=%EC%84%9C%EC%9A%B8%20%EC%84%9C%EC%B4%88%EA%B5%AC%20%EB%B0%98%ED%8F%AC%EB%8C%80%EB%A1%9C30%EA%B8%B8%2081&output=embed"
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"
+              ></iframe>
+            </div>
+          </div>
         </section>
 
-        <section class="card">
-          <h2 class="section-title">CAREER</h2>
-          <ul class="career-list">
-            <li>성균관대 법대 졸업, 사법연수원 제29기 수료</li>
-            <li>경남 창녕 대성고 9회 졸업</li>
-            <li>검찰총장 권한대행, 대검찰청 차장검사(고검장)</li>
-            <li>대검찰청 마약·조직범죄부장(검사장)</li>
-            <li>제주지방검찰청 검사장</li>
-            <li>서울고등검찰청 검사장 직무대리, 차장검사(검사장)</li>
-            <li>부산지방검찰청 제2차장검사</li>
-            <li>서울중앙지방검찰청 조사2부 부장검사</li>
-            <li>광주, 인천지방검찰청 특별수사부 부장검사</li>
-            <li>서울특별시청 법률자문검사 등</li>
-            <li>성균인문동양아카데미 11기 수료</li>
-          </ul>
-        </section>
+        <div class="info-grid-right">
+          <section class="card">
+            <h2 class="section-title">EDUCATION</h2>
+            <ul class="career-list">
+              <li>성균관대 법대(89학번) 졸업</li>
+              <li>경남 창녕 대성고(9회)</li>
+              <li>성균인문동양학아카데미(11기) 수료</li>
+              <li>사법시험 합격(39회)</li>
+              <li>사법연수원 수료(29기)</li>
+            </ul>
+          </section>
+
+          <section class="card">
+            <h2 class="section-title">CAREER</h2>
+            <ul class="career-list">
+              <li>검찰총장 권한대행, 대검찰청 차장검사(고검장)</li>
+              <li>대검찰청 마약·조직범죄부장(검사장)</li>
+              <li>제주지방검찰청 검사장</li>
+              <li>서울고등검찰청 검사장 직무대리, 차장검사(검사장)</li>
+              <li>부산지방검찰청 제2차장검사</li>
+              <li>서울중앙지방검찰청 조사2부 부장검사</li>
+              <li>광주, 인천지방검찰청 특별수사부 부장검사</li>
+              <li>서울특별시청 법률자문검사 등</li>
+            </ul>
+          </section>
+        </div>
       </div>
       <section class="card news-teaser">
         <h2 class="section-title">관련 뉴스</h2>
@@ -469,7 +554,7 @@
           </li>
         </ul>
         <div class="news-actions">
-          <a class="btn-news" href="../news/">관련 뉴스 전체보기</a>
+          <a class="btn-news" href="./news/">관련 뉴스 전체보기</a>
         </div>
       </section>
     </main>
